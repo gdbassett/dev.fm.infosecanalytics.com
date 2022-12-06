@@ -1,0 +1,215 @@
+{
+  "openapi" : "3.0.0",
+  "servers" : [ {
+    "description" : "API to access flow manager",
+    "url" : "https://api.fm.infosecanalytics.com"
+  } ],
+  "tags" : [ {
+    "name" : "Flows",
+    "description" : "Storing and querying flows"
+  } ],
+  "info" : {
+    "description" : "This API provides the functionality fo the flow manager product. It's goal is to allow storing, retrieving, and analyzing Attack Flows",
+    "version" : "0.0.1",
+    "title" : "Flow Manager API",
+    "contact" : {
+      "email" : "support@infosecanalytics.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths" : {
+    "/flows" : {
+      "get" : {
+        "tags" : [ "Flows" ],
+        "summary" : "Query a flow manager graph.",
+        "operationId" : "getFlows",
+        "description" : "By passing in a sparql query, you can search the associated\nflow graph for causal connections and associated context.\n",
+        "requestBody" : {
+          "description" : "The query object parsed by Flow Manager",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/GetFlows"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "items" : {
+                    "$ref" : "#/components/schemas/QueryResult"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Default response (same as success reponse)",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/QueryResult"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Flows" ],
+        "summary" : "Insert or update data in a flow graph.",
+        "operationId" : "postFlows",
+        "description" : "By passing in an attack flow json-schema object or sparql \nINSERT or UPDATE query as a string, insert the associated\ndata into the referenced flow graph.\n",
+        "requestBody" : {
+          "description" : "The query object parsed by Flow Manager",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/PostFlows"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Confirmation of success or failure of creation/update",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/QueryResult"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Confirmation of success or failure of creation/update",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/QueryResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "PostFlows" : {
+        "type" : "object",
+        "required" : [ "version", "token", "graph", "flow" ],
+        "properties" : {
+          "version" : {
+            "description" : "The api version associated witht he query",
+            "type" : "string"
+          },
+          "token" : {
+            "description" : "The auth token associated witht he requested graph",
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "graph" : {
+            "description" : "The graph to be queried",
+            "type" : "string",
+            "minimum" : 0,
+            "maximum" : 128
+          },
+          "flow" : {
+            "description" : "The json-schema object, json-ld object or sparql query representing the flow to add.",
+            "oneOf" : [ {
+              "type" : "string"
+            }, {
+              "type" : "object"
+            } ]
+          },
+          "attack_flow_version" : {
+            "description" : "The version fo attack flow submitted.",
+            "type" : "string",
+            "enum" : [ "1", "2" ],
+            "default" : "1"
+          },
+          "builder" : {
+            "description" : "Was the attack flow generated with the stock Mitre Enginuity CTID\nFLow Builder application?  The reason is the Flow Builder makes some\nopinionated choices that are not optimal for storing multiple flows\ntogether.\n",
+            "type" : "boolean",
+            "default" : true
+          },
+          "best_practices" : {
+            "description" : "Should best practices be applied to the flow during import? This\ninclues using UUIDs for IRIs and storing people as objects.\n",
+            "type" : "boolean",
+            "default" : false
+          }
+        }
+      },
+      "GetFlows" : {
+        "type" : "object",
+        "required" : [ "version", "token", "graph", "flow" ],
+        "properties" : {
+          "version" : {
+            "description" : "The api version associated witht he query",
+            "type" : "string"
+          },
+          "token" : {
+            "description" : "The auth token associated witht he requested graph",
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "graph" : {
+            "description" : "The graph to be queried",
+            "type" : "string",
+            "minimum" : 0,
+            "maximum" : 128
+          },
+          "flow" : {
+            "description" : "The sparql query to be executed in the graph to be queried.",
+            "example" : "SELECT $s $p $o WHERE { $s $p $o}",
+            "type" : "string"
+          }
+        }
+      },
+      "QueryResult" : {
+        "type" : "object",
+        "required" : [ "id", "timestamp", "result", "success" ],
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "uuid",
+            "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+          },
+          "timestamp" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "result" : {
+            "type" : "string",
+            "description" : "The returned sparql query as a json string for get queries.\nA confirmation string for flow graph updates.\n'error' if an error occurred.\n",
+            "example" : "TODO"
+          },
+          "error" : {
+            "type" : "object",
+            "required" : [ "type", "message" ],
+            "properties" : {
+              "type" : {
+                "type" : "string",
+                "example" : "authentication_error"
+              },
+              "message" : {
+                "type" : "string",
+                "example" : "No graph named my_graph exists for the supplied token."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
