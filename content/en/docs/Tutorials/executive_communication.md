@@ -7,4 +7,6 @@ description: >
 ---
 
 
-TODO
+{{% pageinfo %}}
+The executive communication tutorial is currently under construction.
+{{% /pageinfo %}}

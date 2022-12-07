@@ -1,7 +1,7 @@
 ---
 title: "SPARQL CREATE"
 date: 2022-11-04
-weight: 2
+weight: 4
 description: >
   How to create flows using SPARQL queries.
 ---

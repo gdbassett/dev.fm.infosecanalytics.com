@@ -1,7 +1,7 @@
 ---
 title: "Knowledge Graphs"
 date: 2022-11-04
-weight: 2
+weight: 1
 description: >
   Get some basic information about what knowledge graphs are and how to use them.
 ---
@@ -30,14 +30,14 @@ The exception that proves the rule: Sometimes triples (see below) point to liter
 ### Everything is a triple
 A triple is 3 things (surprising! I know!):
 
- * <urn:absolute:flows#Action1> <rdf:type> <https://veris.attackflow.space#Phishing>
+ * <urn:absolute:flows#Action1> <rdf:type> <https://attackflow.space/veris#Phishing>
  * Subject Predicate Object
  * Source Relationship Destination
  * Beginning Middle End
 
 There are a few important implications of this:
 
- * Knowledge graphs are directed. <urn:absolute:flows#Action1> <rdf:type> <https://veris.attackflow.space#Phishing> is not the same as <https://veris.attackflow.space#Phishing> <rdf:type> <urn:absolute:flows#Action1>.
+ * Knowledge graphs are directed. <urn:absolute:flows#Action1> <rdf:type> <https://attackflow.space/veris#Phishing> is not the same as <https://attackflow.space/veris#Phishing> <rdf:type> <urn:absolute:flows#Action1>.
  * Nothing has properties.  There are other graphs where a node or even an edge might have a dictionary of properties, but not knowledge graphs.  That said, it's easy to represent properties.  Instead of something like Node1 {'a': 1, 'b': 2}, you just create triples: Node1 - a - 1, Node1 - b - 2.
 
  ### Namespaces

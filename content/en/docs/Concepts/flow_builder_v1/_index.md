@@ -1,7 +1,7 @@
 ---
 title: "Flow Builder V1"
 date: 2022-11-04
-weight: 1
+weight: 3
 description: >
   How to create a flow in json-schema format using flow builder version 1 that can then be uploaded to Flow Manager.
 ---

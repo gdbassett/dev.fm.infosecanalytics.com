@@ -6,5 +6,6 @@ description: >
   How to use Attack Flow and Flow Manager for attack simulation.
 ---
 
-
-TODO
+{{% pageinfo %}}
+The attack simulation tutorial is  currently under construction.
+{{% /pageinfo %}}

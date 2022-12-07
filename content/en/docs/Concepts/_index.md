@@ -3,15 +3,13 @@ title: "Concepts"
 linkTitle: "Concepts"
 weight: 4
 description: >
-  What does your user need to understand about your project in order to use it - or potentially contribute to it? 
+  Concepts that will help flow manager customers get the most out of their Attack Flow databases.
 ---
 
-{{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
+To use and get the most out of Flow Manager, it's helpful to understand a few key technologies.
 
-For many projects, users may not need much information beyond the information in the [Overview](/docs/overview/), so this section is **optional**. However if there are areas where your users will need a more detailed understanding of a given term or feature in order to do anything useful with your project (or to not make mistakes when using it) put that information in this section. For example, you may want to add some conceptual pages if you have a large project with many components and a complex architecture.
-
-Remember to focus on what the user needs to know, not just what you think is interesting about your project! If they don’t need to understand your original design decisions to use or contribute to the project, don’t put them in, or include your design docs in your repo and link to them. Similarly, most users will probably need to know more about how features work when in use rather than how they are implemented. Consider a separate architecture page for more detailed implementation and system design information that potential project contributors can consult.
-
-
+ - [Knowledge Graphs](docs/Concepts/knowledge_graphs/) - Provides a brief introduction to graphs and the specific type used by Flow Builder
+ - [Attack Flows](docs/Concepts/attack_flow/) - Provides basic definitions of attack flows and their conceptual use.
+ - [Flow Builder](docs/Concepts/flow_builder_v1/) - Provides a detailed walk through for craeting flows in the FLow Builder V1 webapp produced by the Mitre Engiunity Center for Threat Informed Defense (CTID).
+ - [SPARQL](docs/Concepts/sparql.md) - SPARQL is a query language for graphs.  Flow Builder uses SPARQL as the primary way to retrieve flow data from the graph database.  This tutorial provides several useful query examples covering key concepts.
+ - [SPARQL Create](docs/Concepts/sparql_create.md) SPARQL can also be used to create flows. This quick example will show you how.

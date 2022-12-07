@@ -9,9 +9,7 @@ description: >
 ---
 
 {{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
+This is page is still under construction.  It will ultimately hold reference to other projects using Attack Flow and Flow Builder
 {{% /pageinfo %}}
-
-Do you have any example **applications** or **code** for your users in your repo or elsewhere? Link to your examples here.
 
 

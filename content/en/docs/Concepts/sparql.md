@@ -1,7 +1,7 @@
 ---
 title: "SPARQL"
 date: 2022-11-04
-weight: 2
+weight: 4
 description: >
   How to write the SPARQL queries that are important for using Flow Manager.
 ---

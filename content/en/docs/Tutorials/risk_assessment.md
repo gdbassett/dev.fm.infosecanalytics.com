@@ -7,4 +7,6 @@ description: >
 ---
 
 
-TODO
+{{% pageinfo %}}
+The risk assessment tutorial is currently under construction.
+{{% /pageinfo %}}
