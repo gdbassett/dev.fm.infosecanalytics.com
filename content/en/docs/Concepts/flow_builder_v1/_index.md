@@ -39,7 +39,7 @@ Ok, you opened this documenting wanting to get started. But then you saw that it
 First you must create a flow node (kinda like the metadata for the flow). Each flow is defined by a flow node with a set of properties:
 
 - ID (required) A URI. This is what uniquely identifies this node. It works well to use a UUID prefixed with 'flow\_' within an organization-specific namespace. For example, org1.com/flows#flow\_39ebd2cc-22e3-4287-ab86-2bbba2bbd038. Since this isn't particularly easy to read, the 'name' can be used as a human readable name.
-- (required) A string. This can be a truncated form of the UUID (ex "Flow 39ebd2cc"), something more descriptive ("web server attack 1"), or anything else that makes sense for the organization.
+- Name (required) A string. This can be a truncated form of the UUID (ex "Flow 39ebd2cc"), something more descriptive ("web server attack 1"), or anything else that makes sense for the organization.
 - Created (required) An ISO standard datetime. Just put the current time here.
 - Description (optional) A string. Since the UUID probably shouldn't be particularly descriptive (to be short and avoid conflicts) and the name may not be particularly descriptive, the description is a place to type a one or two sentence summary of the flow. Remember, the details are in the flow itself. This field is likely to be used by folks trying to decide whether to look at the full flow or not.
 - Author (optional) In Attack Flow 1, this is described as a string. I would recommend instead storing it as a Friend of a Friend (FOAF) person.
@@ -54,7 +54,8 @@ Instead, just remember the benefit of knowledge graphs: a lot of people have alr
   - VERIS and ATT&CK define many things about, well, attacks.
   - TIME ([http://www.w3.org/2006/time](http://www.w3.org/2006/time)) defines, well, time.
   - RDF (http://www.w3.org/1999/02/22-rdf-syntax-ns) defines 'types' (as in 'server' is a _type_ of asset)
-  - RDFS (http://www.w3.org/2000/01/rdf-schema) defines definitions
+  - RDFS (http://www.w3.org/2000/01/rdf-schema) defines labels (basically names)
+  - DC (http://purl.org/dc/elements/1.1/) defines descriptions 
   - OWL (http://www.w3.org/2002/07/owl) defines DatatypeProperties like strings or number, ObjectProperties like people, NamedIndividual (think if ROAF creates a 'class' for people, a NamedIndividual is an instance of a class), as well as 'SameAs' for when you call the same thing two different names (trust me, it'll happen)
 
 Each of the above defines TONS of other things. You can ignore anything you don't actually have to use.

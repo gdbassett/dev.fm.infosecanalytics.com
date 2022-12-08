@@ -146,7 +146,7 @@
           "best_practices" : {
             "description" : "Should best practices be applied to the flow during import? This\ninclues using UUIDs for IRIs and storing people as objects.\n",
             "type" : "boolean",
-            "default" : false
+            "default" : true
           }
         }
       },
