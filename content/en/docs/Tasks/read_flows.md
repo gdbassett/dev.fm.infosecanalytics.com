@@ -37,7 +37,7 @@ get_body = {
 
 The difference from the POST API is that `builder`, `best_practices`, and `attack_flow_version` will be ignored if provided.
 
-## GET /flows resposne
+## GET /flows response
 
 The returned response will return a JSON response.
 
@@ -85,7 +85,7 @@ Because of this, it's on the user to parse the response in the way appropriate t
 }
 ```
 
-in general, sparql JSON results are a dictionary of two lists.  Varialbes is a list of strings representing the variable names in the `SELECT ...` statement (For example `"vars": ["s", "r", "d"]`) while bindings is the actual data.  Each item in "bindings" is an object with keys for the variables and values of objects containing a 'type' and 'value', for example:
+in general, sparql JSON results are a dictionary of two lists.  Variables is a list of strings representing the variable names in the `SELECT ...` statement (For example `"vars": ["s", "r", "d"]`) while bindings is the actual data.  Each item in "bindings" is an object with keys for the variables and values of objects containing a 'type' and 'value', for example:
 ```
 {
   "s": {
