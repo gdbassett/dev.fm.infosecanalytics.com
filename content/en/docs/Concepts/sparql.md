@@ -6,6 +6,9 @@ description: >
   How to write the SPARQL queries that are important for using Flow Manager.
 ---
 
+{{% pageinfo %}}
+Just a foreword, SPARQL, like any query language, can be picky.  http://www.sparql.org/ has several validators you can use to find errors in your queries.
+{{% /pageinfo %}}
 
 So SPARQL is kinda like SQL for graphs.  Frankly, it's kinda old compared to [Cypher](https://opencypher.org/), [Gremlin](https://tinkerpop.apache.org/gremlin.html), or [Storm](https://synapse.docs.vertex.link/en/latest/synapse/userguides/storm_ref_intro.html) bug it has some properties that make it nice for what we're doing.
 

@@ -33,6 +33,8 @@ get_body = {
 
 `flow` A SPARQL string query reading data. (INSERT, UPDATE, and DELETE queries will not be accepted.) See the [SPARQL Concepts](docs/Concepts/sparql.md) page for more details on SPARQL queries.
 
+`initNs` Optionally, rather than specify PREFIXes in the SPARQL query, a dictionary of namespaces can be supplied to replace in the SELECT statement itself.  The dictionary takes the form `{"foaf": "http://xmlns.com/foaf/0.1/"}` for example, then allowing `foaf:workplaceHomepage \"http://infosecanalytics.com\"` to be used in the query.  If not using, do not include in the query.
+
 The difference from the POST API is that `builder`, `best_practices`, and `attack_flow_version` will be ignored if provided.
 
 ## GET /flows resposne

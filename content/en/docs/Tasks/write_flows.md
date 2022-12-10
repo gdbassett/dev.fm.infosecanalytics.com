@@ -47,6 +47,8 @@ The API itself is rather simple. Queries are passed as JSON in the body of a POS
 
 `flow` The flow. For RDF and json-schema flows, a JSON object (not a string).  For SPARQL queries, the SPARQL query string.
 
+`initNs` Optionally, rather than specify PREFIXes in the SPARQL query, a dictionary of namespaces can be supplied to replace in the SELECT statement itself.  The dictionary takes the form `{"foaf": "http://xmlns.com/foaf/0.1/"}` for example, then allowing `foaf:workplaceHomepage \"http://infosecanalytics.com\"` to be used in the query.  If not using, do not include in the query.
+
 
 ## POST /flows Responses
 

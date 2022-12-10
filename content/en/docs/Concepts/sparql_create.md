@@ -6,6 +6,10 @@ description: >
   How to create flows using SPARQL queries.
 ---
 
+{{% pageinfo %}}
+Just a foreword, SPARQL, like any query language, can be picky.  http://www.sparql.org/ has several validators you can use to find errors in your queries.
+{{% /pageinfo %}}
+
 Inserting data into Flow Manager is actually relatively easy using SPARQL.  You might find, in fact, that it's easier to write flows in SPARQL than other formats, especially for longer flows.  
 
 The following example is the start (the flow node, first action, and first asset) of a larger flow that highlights how SPARQL can be used for writing flows:
