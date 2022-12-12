@@ -191,7 +191,7 @@ enable = true
 #  desc = "Follow us on Twitter to get the latest news!"
 [[params.links.user]]
   name ="Mastodon"
-  url = "https://mastodon.social/@gdbassett"
+  url = "https://infosec.exchange/@infosecanalytics"
   icon = "fab fa-mastodon"
   desc = "Follow us on Mastodon to get the latest news!"
 #[[params.links.user]]
